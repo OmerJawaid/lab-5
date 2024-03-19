@@ -30,10 +30,37 @@ void add_book() {
 	library.push_back(Book(name, book_no,author,quantity));
 	cout << "Book added successfully" << endl;
 }
-
+void print()
+{
+	for(auto i : library)
+	{
+		cout<< i.getName() << "     " << i.getBookNo() << endl;
+	}
+}
 
 int main() {
-	add_book();
-	add_book();
+	string choice;
+	do{
+	  cout<<"a) Add Book \n b) Display Books \n c) Exit \n"
+	    <<"Enter Your choice = " ;
+	  cin>>choice;
+		if (choice == "a" || choice == "A" )
+		{
+			add_book();
+		}
+		else if(choice == "b" || choice == "B")
+		{
+			print();
+		}
+		else if(choice == "c" || choice == "C")
+		{
+			break;
+		}
+		else 
+		{
+			cout<<"Invalid input" << endl;
+		}
+	}
+	while(choice != "c" || choice != "C");
 	return 0;
 }
